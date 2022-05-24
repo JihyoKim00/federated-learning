@@ -7,12 +7,14 @@ This repository contains the code for the team project in Database Systems Modul
 
 
 ### Topic
-We set two topics for this proejct and both two topics are demonstrated on Federated Learning
+We set two topics for this proejct and both two topics are demonstrated on Federated Learning([McMahan et al., 2017](https://proceedings.mlr.press/v54/mcmahan17a.html))
 
 <table>
   <tr>
     <td valign="top"><img src="./assets/topic1.png" width="380" height="348"/></td>
+    <em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Topic 1</em>
     <td valign="top"><img src="./assets/topic2.png" width="380" height="348"/></td>
+    <em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Topic 2</em>
   </tr>
 </table>
 
@@ -50,7 +52,7 @@ echo "Starting server"
 python server.py --model='cnn' --fr_rate=1.0 --datasets='mnist' --strategy='fedavg' --gpu='0' &
 sleep 3  # Sleep for 3s to give the server enough time to start
 
-for i in `seq 0 4`; do
+for i in `seq 0 9`; do
     echo "Starting client $i"
         python client.py --client=5 --model='cnn' --datasets='mnist' --strategy='fedavg' --partition=${i} --gpu='0' &    
 done
@@ -121,10 +123,12 @@ wait
 * Topic 1
 
 <p align="center">
+  <em>Test Accuracy of The Global Model</em>
+  <br></br>
   <img src="./assets/topic1-acc.png" width="563" height="277">
 </p>
 
-We compare FedAdagrad, FedAdam and FedYogi to FedAvg. FedAdam(green) and FedYogi(magenta) yield the better accuracy than FedAvg(blue). They also show fast accuracy improvement. However, FedAdaGrad(burgundy) is worse than FedAvg. We show that the accuracy tendency according to the upda te protocols with MNIST is similar to that of CIFAR-10.
+We compare FedAdagrad, FedAdam and FedYogi to FedAvg. FedAdam(green) and FedYogi(magenta) yield the better accuracy than FedAvg(blue). They also show fast accuracy improvement. However, FedAdaGrad(burgundy) is worse than FedAvg. We show that the accuracy tendency according to the update strategies on MNIST is similar to that of CIFAR-10.
 
 
 * Topic 2
@@ -132,7 +136,9 @@ We compare FedAdagrad, FedAdam and FedYogi to FedAvg. FedAdam(green) and FedYogi
 <table>
   <tr>
     <td valign="top"><img src="./assets/topic2-trn-loss.png" width="607" height="287"/></td>
+    <em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Train Accuracy of Client Models</em>
     <td valign="top"><img src="./assets/topic2-tst-acc.png" width="607" height="287"/></td>
+    <em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test Accuracy of The Global Model</em>
   </tr>
 </table>
 
@@ -140,6 +146,10 @@ The left figure shows that client models trained with noisy dataset(0-4) have hi
  
  
  ### References
+
+[McMahan, B., Moore, E., Ramage, D., Hampson, S., & y Arcas, B. A. (2017, April). Communication-efficient learning of deep networks from decentralized data. In Artificial intelligence and statistics (pp. 1273-1282). PMLR.](https://proceedings.mlr.press/v54/mcmahan17a.html)
+
+[Reddi, S. J., Charles, Z., Zaheer, M., Garrett, Z., Rush, K., Konečný, J., ... & McMahan, H. B. (2020, September). Adaptive Federated Optimization. In International Conference on Learning Representations.](https://openreview.net/forum?id=LkFG3lB13U5)
 
 [Reddi, S. J., Charles, Z., Zaheer, M., Garrett, Z., Rush, K., Konečný, J., ... & McMahan, H. B. (2020, September). Adaptive Federated Optimization. In International Conference on Learning Representations.](https://openreview.net/forum?id=LkFG3lB13U5)
 
