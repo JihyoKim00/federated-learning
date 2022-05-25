@@ -54,7 +54,7 @@ sleep 3  # Sleep for 3s to give the server enough time to start
 
 for i in `seq 0 9`; do
     echo "Starting client $i"
-        python client.py --client=5 --model='cnn' --datasets='mnist' --strategy='fedavg' --partition=${i} --gpu='0' &    
+        python client.py --client=10 --model='cnn' --datasets='mnist' --strategy='fedavg' --partition=${i} --gpu='0' &    
 done
 
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM # This will allow you to use CTRL+C to stop all background processes
