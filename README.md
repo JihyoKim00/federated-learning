@@ -151,6 +151,4 @@ The left figure shows that client models trained with noisy dataset(0-4) have hi
 
 [Reddi, S. J., Charles, Z., Zaheer, M., Garrett, Z., Rush, K., Konečný, J., ... & McMahan, H. B. (2020, September). Adaptive Federated Optimization. In International Conference on Learning Representations.](https://openreview.net/forum?id=LkFG3lB13U5)
 
-[Reddi, S. J., Charles, Z., Zaheer, M., Garrett, Z., Rush, K., Konečný, J., ... & McMahan, H. B. (2020, September). Adaptive Federated Optimization. In International Conference on Learning Representations.](https://openreview.net/forum?id=LkFG3lB13U5)
-
 [Bagdasaryan, E., Veit, A., Hua, Y., Estrin, D., & Shmatikov, V. (2020, June). How to backdoor federated learning. In International Conference on Artificial Intelligence and Statistics (pp. 2938-2948). PMLR.](https://proceedings.mlr.press/v108/bagdasaryan20a.html)
