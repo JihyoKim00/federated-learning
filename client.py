@@ -22,12 +22,6 @@ warnings.filterwarnings("ignore", category=UserWarning)
 wandb.init(project="project name", entity="entity name", group='group name', job_type='job type name')
 
 
-def shot_noise(x, severity=1):
-    c = [500, 250, 100, 75, 50][severity - 1]
-
-    x = np.array(x) / 255.
-    return np.clip(np.random.poisson(x * c) / c, 0, 1) * 255
-
 def train(net, trainloader, epochs, args=None):
     """Train the network on the training set."""
     criterion = torch.nn.CrossEntropyLoss().cuda()
@@ -115,6 +109,7 @@ def main():
     parser.add_argument("--datasets", type=str, default='cifar100')
     parser.add_argument("--model", type=str, default='cnn')
     parser.add_argument("--lr", type=float, default=0.01)
+    parser.add_argument("--clip", type=float, default=0.0)
     parser.add_argument("--num_gpu", type=int, default=2)
     parser.add_argument("--client", type=int, default=10)
     parser.add_argument("--local_ep", type=int, default=1)
