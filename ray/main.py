@@ -21,7 +21,7 @@ warnings.filterwarnings('ignore')
 
 parser = argparse.ArgumentParser(description="Flower Simulation with PyTorch")
 
-parser.add_argument("--datasets", type=str, default='cifar')
+parser.add_argument("--datasets", type=str, default='cifar10')
 parser.add_argument("--num_client_cpus", type=int, default=1)
 parser.add_argument("--client", type=int, default=100)
 parser.add_argument("--local_ep", type=int, default=1)
@@ -40,7 +40,7 @@ class CifarRayClient(fl.client.NumPyClient):
         
         # instantiate model
         #self.net = Net()
-        if str(args['datasets']) == 'cifar':
+        if str(args['datasets']) == 'cifar10':
             self.net = Net()
         elif str(args['datasets']) == 'mnist': 
             self.net = Net2()
@@ -148,7 +148,7 @@ def get_eval_fn(
         # determine device
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-        if str(args['datasets']) == 'cifar':
+        if str(args['datasets']) == 'cifar10':
             net = Net()
         elif str(args['datasets']) == 'mnist': 
             net = Net2()
@@ -194,7 +194,7 @@ if __name__ == "__main__":
     }  
     
     # download CIFAR10 dataset
-    if str(args['datasets']) == 'cifar' :
+    if str(args['datasets']) == 'cifar10' :
         train_path, testset = getCIFAR10()
 
     # download MNIST dataset 
