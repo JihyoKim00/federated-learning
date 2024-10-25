@@ -1,7 +1,7 @@
 # Team Project in Database Systems Module @SeoulTech 
 
 #### Prof. Hyukyoon Kwon
-#### Team 6 {Jihyo Kim, Sungchul Kim, Dohyeon Lee} in Department of Data Science @SeoulTech
+#### Team 6 {Jihyo Kim, Sungchul Kim, Dohyeon Lee} in Department of Data Science @SeoulTech 
 
 This repository contains the code for the team project in Database Systems Module at SeoulTech lectured by Prof. Hyukyoon Kwon. A part of codes is based on the federated learning framework "[Flower](https://flower.dev)".
 
